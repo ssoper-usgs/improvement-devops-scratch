@@ -22,7 +22,9 @@ functions:
           arn: arn:aws:sqs:us-south-94:0000000001:uv-vis-spec-output
           batchSize: 1
     environment:
-      NOTIFIER_LAMBDA_ARN:
+      NOTIFIER_LAMBDA_ARN
+        # TODO should be problemNotifier, not ProblemNotifierLambdaFunction, right? This ref doesn't seem like the
+        # TODO correct value will get into the NOTIFIER_LAMBDA_ARN variable.
         Ref: ProblemNotifierLambdaFunction
 
   problemNotifier:
