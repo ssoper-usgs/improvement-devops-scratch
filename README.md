@@ -37,7 +37,7 @@ Questions to consider:
 1. What is the purpose of the serverless.yml file?
    1. The serverless.yml file is a config file used to define assets being deployed to the cloud (aws in this case).
 2. What is the purpose of the pyproject.toml file?
-   1. The .toml file is the config figle used by the poetry dependency management tool.  Sort of like combining Python's 
+   1. The .toml file is the config file used by the poetry dependency management tool.  Sort of like combining Python's 
     built-in pip (with its requirements.txt file) and virtualenv into one easy-to-use tool. It also contains other project 
     information as part of the config so you can view top level dependency/project information at a glance.
 3. What other pieces of information would you want to see to help investigate the operational issues? 
@@ -94,6 +94,6 @@ poetry shell
 poetry install
 pytest
 
-# beyond this, I don't think we have coverage tools at the ready here, but would be good to add them.  Something like
-# coverage would be fine, or since we have pytest already, pytest-cov would also be fine.
+# beyond this, I don't think we have coverage tools at the ready here, but would be good to add one.  Something like
+# coverage would be fine, or since we have pytest already, pytest-cov would also work.
 ```

@@ -38,16 +38,16 @@ def data_quality_check_handler(event, context):
         }
         try:
             # TODO here you're using the boto3 lambda client to invoke a lambda directly from within the try block
-            # TODO, then not raising exceptions and logging their details on failures for devs/ops to figure out what's
+            # TODO, but not raising exceptions and logging their details on failures
             # TODO, the aws_lambda class method that does the invoke DOES return a response, but the response isn't
-            # TODO interpreted either, contributing to the confusion around which record might have caused a failure.
+            # TODO interpreted for success/fail, contributing to the confusion around which record might have caused a failure.
             # TODO I would consider updating the awslambda module to, rather than calling a lambda based on arn directly,
-            # TODO, rename the module to awssqs and instead populate an sqs queue with a payload.  You can then
+            # TODO, rename the module to awssqs and instead populate an sqs queue with a payload.
             aws_lambda.invoke(
                 function_name=notifier_lambda,
                 payload=payload
             )
-        # TODO this is why the notifier fails 10% of the time without a good stack trace
+        # TODO this contributes to the 10% failure rate of the notifier - where is the stack trace?
         except Exception:
             pass
 

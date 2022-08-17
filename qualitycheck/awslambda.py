@@ -2,7 +2,7 @@ import json
 
 import boto3
 
-
+# TODO I would retool this module to send messages to an sqs queue, rather than invoking a lambda.
 class AwsLambda:
 
     def __init__(self, region='us-west-2'):
